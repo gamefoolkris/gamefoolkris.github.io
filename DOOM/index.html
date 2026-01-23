@@ -1,0 +1,7 @@
+<script src="./doom/compile.js"></script>
+<script>
+  (async function() {
+    window.DOOM = await compileDoom();
+    window.open(DOOM, "_blank");
+  })
+</script>
