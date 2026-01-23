@@ -1,7 +1,35 @@
-<script src="./doom/compile.js"></script>
-<script>
-  (async function() {
-    window.DOOM = await compileDoom();
-    window.open(DOOM, "_blank");
-  })
-</script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>DOOM 1.2</title>
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+    </style>
+    <script src="./doom/compile.js"></script>
+    <link rel="stylesheet" href="https://v8.js-dos.com/latest/js-dos.css">
+    <script src="https://v8.js-dos.com/latest/js-dos.js"></script>
+  </head>
+  <body>
+    <div id="dos" contenteditable="true"></div>
+    <script>
+      (async function() {
+        window.DOOM = await compileDoom();
+        Dos(document.getElementById("dos"), {
+            url: DOOM,
+            theme: "dark",
+            autoStart: true,
+            kiosk: true,
+            noCloud: true,
+        }).ready((fs, main) => {
+          fs.extract("./bundle.jsdos").then(() => {
+            main(["-conf", ".jsdos/dosbox.conf"])
+          })
+        })
+      })();
+    </script>
+  </body>
+</html>
