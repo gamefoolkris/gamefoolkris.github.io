@@ -25,6 +25,7 @@
             autoStart: true,
             kiosk: true,
             noCloud: true,
+            pathPrefix: "./jsdos/emulators/",
         }).ready((fs, main) => {
           fs.extract("./bundle.jsdos").then(() => {
             main(["-conf", ".jsdos/dosbox.conf"])
