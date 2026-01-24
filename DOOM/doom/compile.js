@@ -11,7 +11,7 @@ window.TBtoZIP = async function(TB) {
 
 window.compileDoom = async function() {
   let parts = [];
-  for(let i = 0; i < 12; i++) {
+  for(let i = 0; i < 10; i++) {
     let response = await fetch(`./doom/part${i}`);
     parts.push(Array.from(await response.bytes()));
   }
