@@ -3,11 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <title>DOOM 1.2</title>
-
     <style>
-        html, body {
-            height: 100%;
-        }
+      html, body {
+        height: 100%;
+      }
     </style>
     <script src="./doom/compile.js"></script>
     <link rel="stylesheet" href="./js-dos.css">
@@ -20,12 +19,12 @@
       (async function() {
         window.DOOM = await compileDoom();
         Dos(document.getElementById("dos"), {
-            url: DOOM,
-            theme: "dark",
-            autoStart: true,
-            kiosk: true,
-            noCloud: true,
-            pathPrefix: "./emulators/",
+          url: DOOM,
+          theme: "dark",
+          autoStart: true,
+          kiosk: true,
+          noCloud: true,
+          pathPrefix: "./emulators/",
         }).ready((fs, main) => {
           fs.extract("./bundle.jsdos").then(() => {
             main(["-conf", ".jsdos/dosbox.conf"])
