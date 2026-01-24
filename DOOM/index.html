@@ -20,7 +20,7 @@
     <script type="module">
       (async function() {
         const brotli = await import('./lib/brotli/brotli.js');
-        window.brot = await brotli.default();
+        window.brot = await brotli.default;
         window.DOOM = await compileDoom();
         Dos(document.getElementById("dos"), {
           url: DOOM,
