@@ -12,11 +12,15 @@
     <link rel="stylesheet" href="./js-dos.css">
     <script id="emulators-js" src="./emulators/emulators.js"></script>
     <script src="./js-dos.js"></script>
+    <script src="./lib/tarparser.js"></script>
+    <script src="./lib/fflate.js"></script>
   </head>
   <body>
     <div id="dos" contenteditable="true"></div>
-    <script>
+    <script type="module">
       (async function() {
+        const brotli = await import('./lib/brotli/brotli.js');
+        window.brot = await brotli.default();
         window.DOOM = await compileDoom();
         Dos(document.getElementById("dos"), {
           url: DOOM,
